@@ -2,8 +2,7 @@
  * tableResponsive jQuery plugin
  *
  * Copyright (c) 2014 Stepan Rysavy, oMicrone (http://www.omicrone.net/)
- * Dual licensed under the MIT (MIT-LICENSE.txt)
- * and GPL (GPL-LICENSE.txt) licenses.
+ * Dual licensed under the MIT and GPL licenses.
  *
  * Converts a table into another table or div based on template and switches between them accorting to breakpoint
  * Doesn't work with: 
@@ -45,6 +44,8 @@
  
 ;(function ( $, window, undefined ) {
     $.fn.tableResponsive = function(options) {
+    
+    this.each (function () {
     
       var settings = $.extend ({
         isLarge: true,
@@ -213,18 +214,19 @@
         
         settings.htmlSmall = createSmallTable();
       
-        $table.off("resize").on("resize", onResize);
+        $(window).resize(onResize);
       
         onResize ();
       }
       
       init ();
+    
+    });
       
     };
     
     var wrapperTemplate = '<div class="tableResponsiveHolder"></div>';
     var tableTemplate = '<table {class} {attr}><tbody>{row}<tr><th>{headline}</th><td>{value}</td></tr>{row}</tbody></table>';
     var divTemplate = '<div {class} {attr}>{row}<h4>{headline}</h4><div>{value}</div>{row}</div>';
-    
     
 }(jQuery, window));

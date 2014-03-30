@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>tableResponsive demo</title>
+
+		<meta name="Designer" content="oMicrone.net" >
+		<meta name="Author" content="oMicrone.net" >
+		<meta name="Copyright" content="All rights reserved, oMicrone.net" >
+	
+		<link href="http://www.omicrone.net/css/main.css" type="text/css" rel="stylesheet" media="all" >
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		
+		<script type="text/javascript">
+		
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-4347750-1']);
+			_gaq.push(['_trackPageview']);
+			
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		
+		</script>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/tableResponsive.js"></script>
+	</head>
+	<body>
+	
+	<div class="container">
+	
+		<h1>Demo: tableResponsive</h1>
+		
+		<div class="content">
+			
+			<h2>Table 1</h2>
+		
+			<div class="table">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Width</th>
+							<th>Height</th>
+							<th>Stamina</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Some value 1,1</td>
+							<td>Some value 1,2</td>
+							<td>Some value 1,3</td>
+							<td>Some value 1,4</td>
+						</tr>
+						<tr>
+							<td>Some value 2,1</td>
+							<td>Some value 2,2</td>
+							<td>Some value 2,3</td>
+							<td>Some value 2,4</td>
+						</tr>
+						<tr>
+							<td>Some value 3,1</td>
+							<td>Some value 3,2</td>
+							<td>Some value 3,3</td>
+							<td>Some value 3,4</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<h2>Table 2</h2>
+			
+			<div class="table">
+				<table>
+					<tr>
+						<th>This is a inline headline</th>
+						<td>and this is a value</td>
+						<td>and another value</td>
+						<td>final value</td>
+					</tr>
+					<tr>
+						<th>This row has two TH</th>
+						<td>This is the value 1</td>
+						<th>This is the second headline</th>
+						<td>And it value</td>
+					</tr>
+				</table>
+			</div>
+			
+			<h2>Table 3</h2>
+			
+			<div class="div">
+				<table>
+					<tr>
+						<th>This is a inline headline</th>
+						<td>and this is a value</td>
+						<td>and another value</td>
+						<td>final value</td>
+					</tr>
+					<tr>
+						<th>This row has two TH</th>
+						<td>This is the value 1</td>
+						<th>This is the second headline</th>
+						<td>And it value</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<h2>Resize the screen</h2>
+		
+		<p>You can make your own template. Or after resize callbacks. Or own wrapper. It can be a table. Or div. See inspector for changes in code. Or classes. And it inherits all attributes of table, tr, tr and th.</p> 
+		
+		<h3>Fork at github</h3>
+		
+		<iframe src="http://ghbtns.com/github-btn.html?user=oMicrone&repo=tableResponsive&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
+	
+	</div>
+	
+	<style>
+	
+		.container {padding: 20px}
+		table {margin-bottom: 20px; width: 100%}
+		th, td {border: 1px solid #ccc; border-collapse: collapse; text-align: left; vertical-align: top}
+		th {background: #2b74b2; color: #fff}
+		h4 {color: #2b74b2}
+	
+	</style>
+	
+	<script>
+	
+		$(document).ready (function () {
+		
+			$(".table").tableResponsive();
+			$(".div").tableResponsive({
+				renderAsDiv: true,
+				afterResize: function () {
+					console.log ("I have changed");
+				},
+				breakpoint: 700
+			});	
+		});
+	
+	</script>
+	
+		
+	</body>
+</html>
